@@ -1,0 +1,10 @@
+%h1= @post.title
+
+.post-content
+  - if @post.image.attached?
+    = image_tag @post.image, class: 'post-image'
+
+  %p= @post.description
+
+.actions
+  = link_to 'ホームへ戻る', posts_path, class: 'btn btn-secondary'
