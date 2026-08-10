@@ -1,0 +1,8 @@
+.container.mt-5
+  .row.justify-content-center
+    .col-md-8
+      .card.shadow-sm
+        .card-header.text-white{ class: header_class }
+          %h2.h4.mb-0= title
+
+        = render 'posts/form', post: post

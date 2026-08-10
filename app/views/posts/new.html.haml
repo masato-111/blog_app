@@ -1,8 +1,1 @@
-.container.mt-5
-  .row.justify-content-center
-    .col-md-8
-      .card.shadow-sm
-        .card-header.bg-primary.text-white
-          %h2.h4.mb-0 ブログの新規投稿
-
-        = render 'posts/form', post: @post
+= render 'posts/form_card', post: @post, title: 'ブログの新規投稿', header_class: 'bg-primary'
