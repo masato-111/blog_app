@@ -8,3 +8,13 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+.post-thumbnail {
+  height: 200px;
+  object-fit: cover;
+}
+
+.post-cover-image {
+  max-height: 400px;
+  object-fit: cover;
+}

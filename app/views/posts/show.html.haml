@@ -11,7 +11,7 @@
           -# 画像がある場合（横幅に合わせて自動調整・角丸）
           - if @post.image.attached?
             .text-center.mb-4
-              = image_tag @post.image, class: 'img-fluid rounded', style: 'max-height: 400px; object-fit: cover;'
+              = image_tag @post.image, class: 'img-fluid rounded post-cover-image'
 
           -# 本文（simple_format を使うと文章中の改行がそのまま反映されます）
           .post-content.mb-5
