@@ -1,0 +1,24 @@
+.container.mt-5
+  .row.justify-content-center
+    .col-md-6
+      .card.shadow-sm
+        .card-header.bg-primary.text-white
+          %h2.h4.mb-0 ログイン
+
+        .card-body
+          = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { data: { turbo: false } }) do |f|
+            .mb-3
+              = f.input :email, label: 'メールアドレス', required: false, autofocus: true, input_html: { autocomplete: "email", class: 'form-control' }, placeholder: 'example@email.com'
+
+            .mb-3
+              = f.input :password, label: 'パスワード', required: false, input_html: { autocomplete: "current-password", class: 'form-control' }
+
+            - if devise_mapping.rememberable?
+              .mb-3
+                = f.input :remember_me, as: :boolean, label: 'ログイン状態を保存する'
+
+            .d-grid.gap-2.mt-4
+              = f.button :submit, "ログイン", class: "btn btn-primary"
+
+        .card-footer.bg-transparent.text-center.py-3
+          = render "devise/shared/links"
