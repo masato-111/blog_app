@@ -1,8 +1,12 @@
 require "test_helper"
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   test "should get new" do
-    get posts_new_url
+    sign_in users(:one)
+
+    get new_post_url
     assert_response :success
   end
 end
