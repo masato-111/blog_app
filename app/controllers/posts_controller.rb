@@ -1,16 +1,14 @@
 class PostsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [ :index ]
 
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [ :show, :edit, :update, :destroy ]
   def index
     @posts = Post.order(created_at: :desc)
   end
   def show
-    
   end
 
   def edit
-    
   end
 
   def update
@@ -23,7 +21,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    
     @post.destroy!
       redirect_to posts_path
   end
@@ -35,7 +32,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(posts_params)
-    if @post.save 
+    if @post.save
       redirect_to posts_path
     else
       render :new
@@ -46,12 +43,10 @@ class PostsController < ApplicationController
 
   private
     def posts_params
-      params.expect(post: [:title,:description,:image])
+      params.expect(post: [ :title, :description, :image ])
     end
 
     def set_post
     @post = Post.find(params[:id])
     end
 end
-
-
