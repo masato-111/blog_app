@@ -6,7 +6,7 @@
           -# タイトルと投稿日時
           %h1.h2.mb-3= @post.title
           .text-muted.mb-4.small
-            投稿日: #{@post.created_at.strftime('%Y年%m月%d日 %H:%M')}
+            投稿日: #{@post.formatted_created_at}
 
           -# 画像がある場合（横幅に合わせて自動調整・角丸）
           - if @post.image.attached?
