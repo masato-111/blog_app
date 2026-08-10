@@ -1,0 +1,30 @@
+.container.mt-5
+  .row.justify-content-center
+    .col-md-6
+      .card.shadow-sm
+        .card-header.bg-primary.text-white
+          %h2.h4.mb-0 新規登録
+
+        .card-body
+          = form_with(model: resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f|
+            = render "devise/shared/error_messages", resource: resource
+
+            .mb-3
+              = f.label :email, 'メールアドレス', class: 'form-label'
+              = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'example@email.com'
+
+            .mb-3
+              = f.label :password, 'パスワード', class: 'form-label'
+              - if @minimum_password_length
+                %span.small.text-muted (#{@minimum_password_length}文字以上)
+              = f.password_field :password, autocomplete: "new-password", class: 'form-control'
+
+            .mb-3
+              = f.label :password_confirmation, 'パスワード（確認用）', class: 'form-label'
+              = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
+
+            .d-grid.gap-2.mt-4
+              = f.submit "新規登録", class: "btn btn-primary"
+
+        .card-footer.bg-transparent.text-center.py-3
+          = render "devise/shared/links"
