@@ -6,11 +6,11 @@ class PostsController < ApplicationController
     @posts = Post.order(created_at: :desc)
   end
   def show
-    @post = Post.find(params[:id])
+    
   end
 
   def edit
-    @post= Post.find(params[:id])
+    
   end
 
   def update
@@ -23,7 +23,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post= Post.find(params[:id])
+    
     @post.destroy!
       redirect_to posts_path
   end
@@ -47,6 +47,10 @@ class PostsController < ApplicationController
   private
     def posts_params
       params.expect(post: [:title,:description,:image])
+    end
+
+    def set_post
+    @post = Post.find(params[:id])
     end
 end
 
