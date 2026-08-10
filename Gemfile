@@ -71,3 +71,6 @@ gem "html2haml"
 
 gem 'simple_form'
 gem 'active_storage_validations'
+gem 'devise'
+gem 'letter_opener_web'
+
